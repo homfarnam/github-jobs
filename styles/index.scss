@@ -1,0 +1,35 @@
+// // Tailwind
+// @import "tailwindcss/base";
+// @import "tailwindcss/components";
+ 
+// // Tailwind
+// @import "tailwindcss/utilities";
+
+
+
+// components
+
+@font-face {
+  font-family: "KumbhSans";
+  src: url("/fonts/KumbhSans-Light.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KumbhSans";
+  src: url("/fonts/KumbhSans-Regular.ttf");
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+}
+
+
+html,body{
+  font-family:KumbhSans;
+  background-color:#F4F6F8;
+}
+
+@import './components/ToggleSwitch.scss';
+@import './components/navbar.scss';
