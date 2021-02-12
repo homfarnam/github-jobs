@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { Dispatch, SetStateAction, useRef, useState } from "react"
 import styled from "styled-components"
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch"
 
@@ -6,18 +6,34 @@ const NavDiv = styled.div`
   background-image: url("/desktop/bg-pattern-header.svg");
   height: 200px;
   font-family: KumbhSans;
+  width: 100%;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-size: cover;
 `
 
-interface NavBarProps {}
+interface NavBarProps {
+  setMyLocation: Dispatch<SetStateAction<string>>
+  setDescription: Dispatch<SetStateAction<string>>
+  MyLocation: string
+  Description: string
+}
 
-const NavBar: React.FC<NavBarProps> = () => {
+const NavBar: React.FC<NavBarProps> = ({
+  setMyLocation,
+  MyLocation,
+  setDescription,
+  Description,
+}) => {
   const [Toggle, setToggle] = useState<boolean>(false)
-
   const onNewsletterChange = (checked: boolean) => {
     setToggle(checked)
   }
+
   return (
-    <NavDiv className="w-full z-0 flex flex-col items-start bg-cover">
+    <NavDiv>
       <div className="z-10 flex mt-14 w-full justify-around items-center">
         <img src="/desktop/logo.svg" />
 
@@ -46,6 +62,8 @@ const NavBar: React.FC<NavBarProps> = () => {
           <input
             type="text"
             placeholder="Filter by title, companies, expertise…"
+            value={Description}
+            onChange={(e) => setDescription(e.target.value)}
             className="w-full ml-2 mt-1"
           />
         </div>
@@ -59,6 +77,8 @@ const NavBar: React.FC<NavBarProps> = () => {
             type="text"
             placeholder="Filter by Location..."
             className="w-full ml-2 mt-1"
+            value={MyLocation}
+            onChange={(e) => setMyLocation(e.target.value)}
           />
         </div>
         <div className="w-4/12 h-14 z-0 "></div>
