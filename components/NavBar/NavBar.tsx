@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useRef, useState } from "react"
+import { Dispatch, SetStateAction, useState } from "react"
 import styled from "styled-components"
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch"
 
