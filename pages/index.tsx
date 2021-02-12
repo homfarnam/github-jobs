@@ -71,7 +71,7 @@ export const IndexPage: NextPage<IndexPageProps> = () => {
   const [MyLocation, setMyLocation] = useState<string>("")
   const [Page, setPage] = useState<number>(1)
   const [Description, setDescription] = useState<string>("")
-  const [FullTime, setFullTime] = useState<string>()
+  // const [FullTime, setFullTime] = useState<string>()
 
   const { data, status } = useQuery(
     [Description, MyLocation, Page],
